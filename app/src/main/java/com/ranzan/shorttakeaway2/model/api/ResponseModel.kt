@@ -1,6 +1,10 @@
 package com.ranzan.shorttakeaway2.model.api
 
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
 import com.google.gson.annotations.SerializedName
+import com.ranzan.shorttakeaway2.R
 
 data class ResponseModel(
 
@@ -115,3 +119,10 @@ data class ResultsItem(
 	@field:SerializedName("collectionArtistId")
 	val collectionArtistId: Int? = null
 )
+
+
+@BindingAdapter("android:loadImage")
+fun loadImage(imageView: ImageView, url: String) {
+	Glide.with(imageView).load(url).placeholder(R.drawable.ic_baseline_broken_image_24)
+		.into(imageView)
+}

@@ -21,12 +21,13 @@
             android:orientation="vertical">
 
             <ImageView
+                android:loadImage="@{item.artworkUrl100}"
+                android:padding="10dp"
                 android:id="@+id/coverImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minWidth="200dp"
                 android:minHeight="200dp"
-                android:src="@{}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,12 +41,18 @@
 
                 <TextView
                     android:id="@+id/trackName"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
+                    android:hint="Track Name"
+                    android:textSize="16sp"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:text="@{item.trackName}" />
 
                 <TextView
                     android:id="@+id/artistName"
+                    android:layout_marginTop="20dp"
+                    android:hint="Artist Name"
+                    android:textSize="15sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{item.artistName}" />
