@@ -63,6 +63,9 @@ dependencies {
 
     //Room
     implementation 'androidx.room:room-ktx:2.1.0'
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0-alpha3"
+
+    implementation 'com.google.code.gson:gson:2.8.6'
 
     //kapt
     kapt 'androidx.room:room-compiler:2.1.0'

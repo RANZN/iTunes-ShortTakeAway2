@@ -13,7 +13,7 @@ interface TheDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addData(data: TheEntity)
 
-    @Query("select * from `offline data`")
-    fun getData(): LiveData<TheEntity>
+    @Query("select * from `offline data` where text=:text")
+    fun getData(text: String): LiveData<List<TheEntity>>
 
 }

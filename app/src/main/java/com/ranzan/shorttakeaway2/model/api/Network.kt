@@ -9,7 +9,7 @@ class Network {
     companion object {
         private const val BASE_URL = "https://itunes.apple.com/"
 
-        fun getRetrofit(): Retrofit {
+        private fun getRetrofit(): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -21,7 +21,7 @@ class Network {
                 .build()
         }
 
-        val apiService: ApiService = Network.getRetrofit().create(ApiService::class.java)
+        val apiService: ApiService = getRetrofit().create(ApiService::class.java)
     }
 
 }

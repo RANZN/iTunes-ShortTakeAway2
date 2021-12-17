@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ranzan.shorttakeaway2.R
 import com.ranzan.shorttakeaway2.databinding.ActivityMainBinding
 import com.ranzan.shorttakeaway2.model.Repo
-import com.ranzan.shorttakeaway2.model.api.ResultsItem
 import com.ranzan.shorttakeaway2.model.database.TheDao
 import com.ranzan.shorttakeaway2.model.database.TheDatabase
+import com.ranzan.shorttakeaway2.model.database.TheEntity
 import com.ranzan.shorttakeaway2.ui.adapter.RecyclerViewAdapter
 import com.ranzan.shorttakeaway2.viewmodel.TheViewModel
 import com.ranzan.shorttakeaway2.viewmodel.ViewModelFactory
@@ -20,17 +20,22 @@ import com.ranzan.shorttakeaway2.viewmodel.ViewModelFactory
 class MainActivity : AppCompatActivity() {
     private lateinit var activityMainBinding: ActivityMainBinding
     private lateinit var viewModel: TheViewModel
-    var list = ArrayList<ResultsItem>()
+    var list = ArrayList<TheEntity>()
 
+    //Defining room as context need to pass to initialize it.
     private lateinit var roomDatabase: TheDatabase
     private lateinit var theDao: TheDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        //assigning roomDB
         roomDatabase = TheDatabase.getDatabaseObject(this)
         theDao = roomDatabase.getDao()
         val repo = Repo(theDao)
+
+        //defining viewModel
         viewModel = ViewModelProvider(this, ViewModelFactory(repo)).get(TheViewModel::class.java)
 
 
@@ -52,12 +57,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun searchData(p0: String?) {
         viewModel.getDataFromApi(p0!!).observe(this, Observer {
-            list = (it.results as ArrayList<ResultsItem>?)!!
+            list = it as ArrayList<TheEntity>
             setRecyclerView(list)
         })
     }
 
-    private fun setRecyclerView(list: java.util.ArrayList<ResultsItem>) {
+    private fun setRecyclerView(list: java.util.ArrayList<TheEntity>) {
         activityMainBinding.recyclerView.apply {
             adapter = RecyclerViewAdapter(list)
 //            layoutManager = GridLayoutManager(this@MainActivity, 2)
