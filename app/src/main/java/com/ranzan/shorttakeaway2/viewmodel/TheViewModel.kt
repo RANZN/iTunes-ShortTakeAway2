@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.ranzan.shorttakeaway2.model.Repo
-import com.ranzan.shorttakeaway2.model.database.TheEntity
+import com.ranzan.shorttakeaway2.model.api.ResultsItem
 
 class ViewModelFactory(private val repo: Repo) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
@@ -16,7 +16,7 @@ class ViewModelFactory(private val repo: Repo) : ViewModelProvider.Factory {
 class TheViewModel(private val repo: Repo) : ViewModel() {
 
 
-    fun getDataFromApi(text: String): LiveData<List<TheEntity>> {
+    fun getDataFromApi(text: String): LiveData<List<ResultsItem>> {
         return repo.getDataFromApi(text)
     }
 

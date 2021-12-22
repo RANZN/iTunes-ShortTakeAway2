@@ -2,6 +2,8 @@ package com.ranzan.shorttakeaway2.model.api
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.bumptech.glide.Glide
 import com.google.gson.annotations.SerializedName
 import com.ranzan.shorttakeaway2.R
@@ -18,108 +20,108 @@ data class ResponseModel(
 data class ResultsItem(
 
 	@field:SerializedName("artworkUrl100")
-	val artworkUrl100: String? = null,
+	var artworkUrl100: String? = null,
 
 	@field:SerializedName("trackTimeMillis")
-	val trackTimeMillis: Int? = null,
+	var trackTimeMillis: Int? = null,
 
 	@field:SerializedName("country")
-	val country: String? = null,
+	var country: String? = null,
 
 	@field:SerializedName("previewUrl")
-	val previewUrl: String? = null,
+	var previewUrl: String? = null,
 
 	@field:SerializedName("artistId")
-	val artistId: Int? = null,
+	var artistId: Int? = null,
 
 	@field:SerializedName("trackName")
-	val trackName: String? = null,
+	var trackName: String? = null,
 
 	@field:SerializedName("collectionName")
-	val collectionName: String? = null,
+	var collectionName: String? = null,
 
 	@field:SerializedName("artistViewUrl")
-	val artistViewUrl: String? = null,
+	var artistViewUrl: String? = null,
 
 	@field:SerializedName("discNumber")
-	val discNumber: Int? = null,
+	var discNumber: Int? = null,
 
 	@field:SerializedName("trackCount")
-	val trackCount: Int? = null,
+	var trackCount: Int? = null,
 
 	@field:SerializedName("artworkUrl30")
-	val artworkUrl30: String? = null,
+	var artworkUrl30: String? = null,
 
 	@field:SerializedName("wrapperType")
-	val wrapperType: String? = null,
+	var wrapperType: String? = null,
 
 	@field:SerializedName("currency")
-	val currency: String? = null,
+	var currency: String? = null,
 
 	@field:SerializedName("collectionId")
-	val collectionId: Int? = null,
+	var collectionId: Int? = null,
 
 	@field:SerializedName("isStreamable")
-	val isStreamable: Boolean? = null,
+	var isStreamable: Boolean? = null,
 
 	@field:SerializedName("trackExplicitness")
-	val trackExplicitness: String? = null,
+	var trackExplicitness: String? = null,
 
 	@field:SerializedName("collectionViewUrl")
-	val collectionViewUrl: String? = null,
+	var collectionViewUrl: String? = null,
 
 	@field:SerializedName("trackNumber")
-	val trackNumber: Int? = null,
+	var trackNumber: Int? = null,
 
 	@field:SerializedName("releaseDate")
-	val releaseDate: String? = null,
+	var releaseDate: String? = null,
 
 	@field:SerializedName("kind")
-	val kind: String? = null,
+	var kind: String? = null,
 
 	@field:SerializedName("trackId")
-	val trackId: Int? = null,
+	var trackId: Int? = null,
 
 	@field:SerializedName("collectionPrice")
-	val collectionPrice: Double? = null,
+	var collectionPrice: Double? = null,
 
 	@field:SerializedName("discCount")
-	val discCount: Int? = null,
+	var discCount: Int? = null,
 
 	@field:SerializedName("primaryGenreName")
-	val primaryGenreName: String? = null,
+	var primaryGenreName: String? = null,
 
 	@field:SerializedName("trackPrice")
-	val trackPrice: Double? = null,
+	var trackPrice: Double? = null,
 
 	@field:SerializedName("collectionExplicitness")
-	val collectionExplicitness: String? = null,
+	var collectionExplicitness: String? = null,
 
 	@field:SerializedName("trackViewUrl")
-	val trackViewUrl: String? = null,
+	var trackViewUrl: String? = null,
 
 	@field:SerializedName("artworkUrl60")
-	val artworkUrl60: String? = null,
+	var artworkUrl60: String? = null,
 
 	@field:SerializedName("trackCensoredName")
-	val trackCensoredName: String? = null,
+	var trackCensoredName: String? = null,
 
 	@field:SerializedName("artistName")
-	val artistName: String? = null,
+	var artistName: String? = null,
 
 	@field:SerializedName("collectionCensoredName")
-	val collectionCensoredName: String? = null,
+	var collectionCensoredName: String? = null,
 
 	@field:SerializedName("collectionArtistName")
-	val collectionArtistName: String? = null,
+	var collectionArtistName: String? = null,
 
 	@field:SerializedName("contentAdvisoryRating")
-	val contentAdvisoryRating: String? = null,
+	var contentAdvisoryRating: String? = null,
 
 	@field:SerializedName("collectionArtistId")
-	val collectionArtistId: Int? = null
-)
+	var collectionArtistId: Int? = null,
 
+	)
 
 @BindingAdapter("android:loadImage")
 fun loadImage(imageView: ImageView, url: String) {

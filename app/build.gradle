@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
     id 'kotlin-kapt'
 }
 
@@ -61,12 +62,20 @@ dependencies {
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.9.0'
 
-    //Room
-    implementation 'androidx.room:room-ktx:2.1.0'
-    annotationProcessor "android.arch.persistence.room:compiler:1.0.0-alpha3"
+//    //Room
+//    implementation 'androidx.room:room-ktx:2.1.0'
+//    annotationProcessor "android.arch.persistence.room:compiler:1.0.0-alpha3"
+//
+//    implementation 'com.google.code.gson:gson:2.8.6'
+//
+//    //kapt
+//    kapt 'androidx.room:room-compiler:2.1.0'
 
-    implementation 'com.google.code.gson:gson:2.8.6'
 
-    //kapt
-    kapt 'androidx.room:room-compiler:2.1.0'
+    def room_version = "2.2.4"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    testImplementation "androidx.room:room-testing:$room_version"
 }

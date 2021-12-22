@@ -13,7 +13,7 @@ import androidx.room.RoomDatabase
         private var INSTANCE: TheDatabase? = null
 
         fun getDatabaseObject(context: Context): TheDatabase {
-            if (INSTANCE == null) {
+            return if (INSTANCE == null) {
                 val builder = Room.databaseBuilder(
                     context.applicationContext,
                     TheDatabase::class.java,
@@ -21,9 +21,9 @@ import androidx.room.RoomDatabase
                 )
                 builder.fallbackToDestructiveMigration()
                 INSTANCE = builder.build()
-                return INSTANCE!!
+                INSTANCE!!
             } else {
-                return INSTANCE!!
+                INSTANCE!!
             }
         }
     }

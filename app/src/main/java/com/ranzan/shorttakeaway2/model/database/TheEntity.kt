@@ -1,21 +1,20 @@
 package com.ranzan.shorttakeaway2.model.database
 
 import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.ranzan.shorttakeaway2.model.api.ResultsItem
 
 
-@Entity(tableName = "Offline Data")
+@Entity(tableName = "offline data")
 data class TheEntity(
 
     @ColumnInfo(name = "text")
     val text: String,
-    @ColumnInfo(name = "Track Name")
-    val trackName: String,
-    @ColumnInfo(name = "Artist Name")
-    val artistName: String,
-    @ColumnInfo(name = "Track Image")
-    val trackImage: String
+
+    @Embedded
+    var resultsItem: ResultsItem
 ) {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")

@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ranzan.shorttakeaway2.R
 import com.ranzan.shorttakeaway2.databinding.ActivityMainBinding
 import com.ranzan.shorttakeaway2.model.Repo
+import com.ranzan.shorttakeaway2.model.api.ResultsItem
 import com.ranzan.shorttakeaway2.model.database.TheDao
 import com.ranzan.shorttakeaway2.model.database.TheDatabase
-import com.ranzan.shorttakeaway2.model.database.TheEntity
 import com.ranzan.shorttakeaway2.ui.adapter.RecyclerViewAdapter
 import com.ranzan.shorttakeaway2.viewmodel.TheViewModel
 import com.ranzan.shorttakeaway2.viewmodel.ViewModelFactory
@@ -20,7 +20,7 @@ import com.ranzan.shorttakeaway2.viewmodel.ViewModelFactory
 class MainActivity : AppCompatActivity() {
     private lateinit var activityMainBinding: ActivityMainBinding
     private lateinit var viewModel: TheViewModel
-    var list = ArrayList<TheEntity>()
+    var list = ArrayList<ResultsItem>()
 
     //Defining room as context need to pass to initialize it.
     private lateinit var roomDatabase: TheDatabase
@@ -57,12 +57,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun searchData(p0: String?) {
         viewModel.getDataFromApi(p0!!).observe(this, Observer {
-            list = it as ArrayList<TheEntity>
+            list = it as ArrayList<ResultsItem>
             setRecyclerView(list)
         })
     }
 
-    private fun setRecyclerView(list: java.util.ArrayList<TheEntity>) {
+    private fun setRecyclerView(list: java.util.ArrayList<ResultsItem>) {
         activityMainBinding.recyclerView.apply {
             adapter = RecyclerViewAdapter(list)
 //            layoutManager = GridLayoutManager(this@MainActivity, 2)
